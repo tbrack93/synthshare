@@ -18,6 +18,9 @@ gem 'webpacker'
 gem 'devise'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'figaro'
+gem 'cloudinary'
+gem 'carrierwave'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
