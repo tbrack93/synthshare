@@ -17,3 +17,31 @@
 .synth-nav img {
   padding-top:6px;
 }
+
+
+.dropdown-menu {
+  color: white !important;
+  background: #2F2E2E !important;
+  //font-family: 'Poiret One', cursive;
+  font-family: 'Quicksand', sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+  color: #dbdbdb !important;
+  background: #2F2E2E !important;
+}
+
+.dropdown-toggle[aria-expanded="true"] {
+  color: white !important;
+  background: #2F2E2E !important;
+}
+
+.fa-user {
+  padding-right: 4px;
+}
+
+.fa-sign-out-alt {
+  padding-right: 4px;
+}
