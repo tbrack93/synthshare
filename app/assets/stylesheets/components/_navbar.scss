@@ -1,5 +1,6 @@
 .synth-nav {
  background: #2F2E2E;
+ height: 50px;
 }
 
 .synth-nav a {
@@ -45,3 +46,49 @@
 .fa-sign-out-alt {
   padding-right: 4px;
 }
+
+.fa-sign-in-alt {
+  padding-right: 4px;
+}
+
+#small-screen-nav {
+  float: right;
+  padding-right: 15px;
+}
+
+#small-screen-nav a.dropdown-toggle {
+  padding-bottom:7px !important;
+  padding-right:30px;
+}
+
+.fa-bars {
+  font-size:20px;
+}
+
+#small-screen-nav.dropdown-menu {
+  text-align: right;
+  margin-top:-10px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  #large-screen-nav {
+    display: none;
+  }
+  .synth-nav img {
+    padding-top:6px;
+    padding-left:17px ;
+  }
+   /* show it on small screens */
+}
+
+@media screen and (min-width: 767px) {
+  #small-screen-nav {
+   display: none;
+  }
+ .synth-nav img {
+  padding-top:6px;
+  padding-left:10px;
+  }
+     /* show it on small screens */
+}
+
