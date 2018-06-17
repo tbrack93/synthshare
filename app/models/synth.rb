@@ -11,4 +11,7 @@ class Synth < ApplicationRecord
   validates :battery_life, presence: true
   validates :build_date, presence: true
   validates :photo, presence: true
+
+
+
 end

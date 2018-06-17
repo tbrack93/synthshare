@@ -1,0 +1,89 @@
+.cards {
+  margin-top: -25px;
+}
+
+.card-photo {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.index-card {
+  width: 255px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  color:black;
+}
+
+.index-card:hover {
+  box-shadow: 1px 8px 20px gray;
+}
+
+.card-content {
+  position: relative;
+  background-color: #fcfcfc;
+  padding: 10px 20px 10px;
+  width: 100%;
+  height: 200px;
+}
+
+.title {
+  padding-left: 20px;
+  padding-right: 20px;
+  position: absolute;
+  bottom: 100%;
+  text-transform: uppercase;
+  margin: 0;
+  left: 0;
+  font-weight:90;
+  color: white;
+  background-color: orange;
+  width: 100%;
+  font-size: 18px;
+  height:25px;
+  font-family: "Quicksand";
+}
+
+.left {
+  float:left;
+}
+
+.right {
+  float:right;
+}
+
+.card-description {
+  font-size: 16px;
+  border-bottom: 1px solid #e2e0e0;
+  height:100px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+}
+
+.processor {
+  padding-top:5px;
+  padding-left:0px;
+  font-size:12px;
+}
+
+
+.memory {
+  padding-top:5px;
+  font-size:12px;
+}
+
+.battery {
+  padding-top:5px;
+  font-size:12px;
+}
+
+
