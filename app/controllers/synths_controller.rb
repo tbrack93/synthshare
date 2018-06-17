@@ -2,6 +2,15 @@ class SynthsController < ApplicationController
 
   def index
     @synths = Synth.all
+
+    @markers = []
+    @synths.each do |synth|
+      hash = {
+          lat: synth.user.latitude,
+          lng: synth.user.longitude,
+             }
+      @markers << hash
+    end
   end
 
   def new
@@ -21,7 +30,7 @@ class SynthsController < ApplicationController
 
 private
   def synth_params
-    params.require(:synth).permit(:name, :description, :body_format, :model_no, :processor, :memory, :battery_life, :build_date,
+    params.require(:synth).permit(:name, :description, :body_format, :price, :model_no, :processor, :memory, :battery_life, :build_date,
     :cleaning, :cooking, :childcare, :diy, :construction, :painting, :gardening, :healthcare,
     :elderlycare, :animalcare, :driving, :self_defense, :security, :entertainment, :photo, :cardiothoracic,
     :quantumelectrodynamics, :architecturalengineering)

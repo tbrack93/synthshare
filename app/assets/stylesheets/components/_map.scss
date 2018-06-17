@@ -1,0 +1,15 @@
+.map-synths {
+  position: fixed;
+  width: 33%;
+  top: 25px;
+  right: -5px;
+  bottom: 0;
+  #map {
+    position: absolute;
+    height: 100vh !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    margin-bottom: 10px;
+  }
+}
