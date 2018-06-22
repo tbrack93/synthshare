@@ -13,6 +13,11 @@
     <div class = "col-md-6 synth-body">
       <h3> Background </h3>
       <p> <%= @synth.description %> </p>
+      <hr>
+      <h3> Skills </h3>
+      <% @synth.skills.each do |skill| %>
+      <p> <%=skill%></p>
+      <%end%>
     </div>
   </div>
 </div>
