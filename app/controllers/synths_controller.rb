@@ -1,4 +1,5 @@
 class SynthsController < ApplicationController
+before_action :set_synth, except: [:new, :index, :create]
 
   def index
     @synths = Synth.all
@@ -12,6 +13,11 @@ class SynthsController < ApplicationController
       @markers << hash
     end
   end
+
+  def show
+
+  end
+
 
   def new
     @synth = Synth.new
@@ -34,5 +40,9 @@ private
     :cleaning, :cooking, :childcare, :diy, :construction, :painting, :gardening, :healthcare,
     :elderlycare, :animalcare, :driving, :self_defense, :security, :entertainment, :photo, :cardiothoracic,
     :quantumelectrodynamics, :architecturalengineering)
+  end
+
+  def set_synth
+    @synth = Synth.find(params[:id])
   end
 end

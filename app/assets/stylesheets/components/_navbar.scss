@@ -1,6 +1,8 @@
 .synth-nav {
  background: #2F2E2E;
  height: 50px;
+ margin-bottom:0px;
+ border: none;
 }
 
 .synth-nav a {
@@ -37,6 +39,7 @@
 .dropdown-toggle[aria-expanded="true"] {
   color: white !important;
   background: #2F2E2E !important;
+  padding-bottom:11px;
 }
 
 .fa-user {
@@ -67,7 +70,6 @@
 
 #small-screen-nav.dropdown-menu {
   text-align: right;
-  margin-top:-10px;
 }
 
 @media screen and (min-width: 0px) and (max-width: 767px) {
