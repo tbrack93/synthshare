@@ -1,0 +1,41 @@
+<div class="synth-banner">
+  <%= image_tag "#{rand(5)+1}.jpeg" %>
+</div>
+<div class="container">
+  <div class="col-xs-12">
+    <div class="avatar">
+      <%= cl_image_tag(@synth.photo, height: 250)%>
+    </div>
+    <div class="synth-titles">
+      <p> <%= @synth.name.upcase%> </p>
+      <p> Model No: <%= @synth.model_no.upcase %> </p>
+    </div>
+    <div class = "col-md-6 synth-body">
+      <p> <%= @synth.description %> </p>
+      <hr>
+      <h3> Skills </h3>
+      <div class="row">
+        <% @synth.skills.each do |skill| %>
+          <div class="col-md-4 skill-item">
+          <%=skill%>
+        </div>
+        <%end%>
+       </div>
+      <hr>
+      <h3> Technical Specs </h3>
+      <div class="row">
+        <div class="col-md-3">Processor</div>
+        <div class="col-md-3">Memory</div>
+        <div class="col-md-3">Battery Life</div>
+        <div class="col-md-3">Build Date</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"><%= @synth.processor%> </div>
+        <div class="col-md-3"><%= @synth.memory%> </div>
+        <div class="col-md-3"><%= @synth.battery_life%> </div>
+        <div class="col-md-3"><%= @synth.build_date%> </div>
+      </div>
+    </div>
+  </div>
+</div>
+

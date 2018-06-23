@@ -1,0 +1,46 @@
+.synth-banner {
+  height:260px;
+  z-index: -1;
+  position: relative;
+}
+
+.synth-banner img {
+  height:260px;
+  margin-top: -5px;
+  padding-top: 0px;
+  width:100%;
+}
+
+.avatar {
+  margin-top: -160px;
+  margin-left: 85px;
+  float:left;
+}
+
+.avatar img {
+  border: solid 5px white;
+  max-width: 300px;
+  object-fit: cover;
+}
+
+
+.synth-titles {
+  float:left;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.synth-body {
+ margin-left: 75px;
+ padding-top:50px;
+}
+
+.synth-body h3 {
+  font-size: 20px;
+}
+
+.skill-item {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
