@@ -26,11 +26,21 @@
 
 .synth-titles {
   float:left;
-  margin-top: 20px;
-  margin-left: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
   font-size: 20px;
 }
 
 .synth-body {
  margin-left: 75px;
+ padding-top:50px;
+}
+
+.synth-body h3 {
+  font-size: 20px;
+}
+
+.skill-item {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
