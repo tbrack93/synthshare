@@ -15,7 +15,7 @@ before_action :set_synth, except: [:new, :index, :create]
   end
 
   def show
-
+    @booking = Booking.new
   end
 
 
