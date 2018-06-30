@@ -39,16 +39,18 @@
     </div>
 
     <div class="col-md-4 col-md-offset-8 synth-booking">
-      <p>Book <%= @synth.name %> for £<%= @synth.price%> per hour </p>
+      <p>Book <%= @synth.name %> for £<%= @synth.price%> per day </p>
       <%= simple_form_for [@synth, @booking] do |f| %>
       Start Date
       <br>
-      <%= f.text_field :start_time, data:{ provide:'datepicker'}, autocomplete: "off"%>
+      <%= f.text_field :start_time, data:{ provide:'datepicker', 'date_format' => 'dd-mm-yyyy', 'date-autoclose' => 'true', 'date_start_date' => Time.now}, autocomplete: "off", id: "start"%>  <i class="fas fa-calendar-alt"></i>
       <br>
       <br>
       End Date
       <br>
-      <%= f.text_field :end_time, data:{ provide:'datepicker'}, autocomplete: "off" %>
+      <div id = "end-div">
+      <%= f.text_field :end_time, data:{ provide:'datepicker', 'date_format' => 'dd-mm-yyyy', 'date-autoclose' => 'true', 'date_start_date' => Time.now}, autocomplete: "off", id: "end" %>  <i class="fas fa-calendar-alt"></i>
+    </div>
       <br>
       <br>
       <%= f.input :details, label: "Required Tasks" %>

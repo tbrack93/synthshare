@@ -28,6 +28,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
+gem 'date_validator'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
