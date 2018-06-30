@@ -17,11 +17,11 @@
       <h3> Skills </h3>
       <div class="row">
         <% @synth.skills.each do |skill| %>
-          <div class="col-md-4 skill-item">
+        <div class="col-md-4 skill-item">
           <%=skill%>
         </div>
         <%end%>
-       </div>
+      </div>
       <hr>
       <h3> Technical Specs </h3>
       <div class="row">
@@ -49,12 +49,11 @@
       End Date
       <br>
       <div id = "end-div">
-      <%= f.text_field :end_time, data:{ provide:'datepicker', 'date_format' => 'dd-mm-yyyy', 'date-autoclose' => 'true', 'date_start_date' => Time.now}, autocomplete: "off", id: "end" %>  <i class="fas fa-calendar-alt"></i>
-    </div>
-      <br>
+        <%= f.text_field :end_time, data:{ provide:'datepicker', 'date_format' => 'dd-mm-yyyy', 'date-autoclose' => 'true', 'date_start_date' => Time.now}, autocomplete: "off", id: "end" %>  <i class="fas fa-calendar-alt"></i>
+      </div>
       <br>
       <%= f.input :details, label: "Required Tasks" %>
-      <%= f.submit class: "btn btn-warning" %>
+      <%= f.submit class: "btn btn-warning", value: "Request Booking" %>
       <%end%>
       <br>
     </div>
