@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 before_action :set_synth
-before_action :set_booking, only: [:show]
+before_action :set_booking, only: [:show, :submit, :destroy]
 
   def create
     @booking = Booking.new(booking_params)
@@ -17,6 +17,18 @@ before_action :set_booking, only: [:show]
   def show
     redirect_to @synth unless @booking.user == current_user
   end
+
+  def submit
+    @booking.status = "submitted"
+    @booking.save
+    redirect_to @synth
+  end
+
+  def destroy
+    @booking.destroy
+    redirect_to @synth
+  end
+
 
   private
 
