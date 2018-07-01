@@ -1,0 +1,46 @@
+<br>
+<div class = "text-center">
+  <h3> Your Booking </h3>
+  <p> Confirm details of your booking before sending request to the Synth's owner</p>
+</div>
+<div class = "row">
+  <div class ="col-xs-8 col-xs-offset-2 booking-confirm">
+    <hr>
+    <div class ="col-xs-2">
+      <%= cl_image_tag(@synth.photo, height: 85)%>
+    </div>
+    <div class ="col-xs-2">
+      <p> Synth </p>
+      <%= @synth.name %>
+      <br>
+      <%= @synth.model_no %>
+    </div>
+    <div class ="col-xs-3">
+      <p> Your Request </p>
+      <%= @booking.details %>
+    </div>
+    <div class ="col-xs-2 text-center">
+      <p> Start Date </p>
+      <%= @booking.start_time.strftime("%d/%m/%Y") %>
+    </div>
+    <div class ="col-xs-2 text-center">
+      <p> End Date </p>
+      <%= @booking.end_time.strftime("%d/%m/%Y") %>
+    </div>
+    <div class ="col-xs-1 text-center">
+      <p> Price </p>
+      £<%= @booking.price %>
+    </div>
+  </div>
+</div>
+<div class = "row">
+  <div class ="col-xs-8 col-xs-offset-2 booking-confirm text-right">
+    <hr>
+    <%= link_to "Remove", synth_booking_path(@synth, @booking), method: :delete, class: "btn btn-primary cancel", data: { confirm: "Are you sure you want to remove this booking?" } %>
+    <%= link_to "Submit", synth_submit_booking_path(@synth, @booking), method: :patch, class: "btn btn-warning" %>
+  </div>
+</div>
+
+
+
+

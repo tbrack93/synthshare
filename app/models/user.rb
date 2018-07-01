@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :synths
+  has_many :bookings
 
 
   geocoded_by :address

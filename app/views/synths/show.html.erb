@@ -1,3 +1,4 @@
+
 <div class="synth-banner">
   <%= image_tag "#{rand(5)+1}.jpeg" %>
 </div>
@@ -10,17 +11,17 @@
       <p> <%= @synth.name.upcase%> </p>
       <p> Model No: <%= @synth.model_no.upcase %> </p>
     </div>
-    <div class = "col-md-6 synth-body">
+    <div class = "col-md-7 synth-body">
       <p> <%= @synth.description %> </p>
       <hr>
       <h3> Skills </h3>
       <div class="row">
         <% @synth.skills.each do |skill| %>
-          <div class="col-md-4 skill-item">
+        <div class="col-md-4 skill-item">
           <%=skill%>
         </div>
         <%end%>
-       </div>
+      </div>
       <hr>
       <h3> Technical Specs </h3>
       <div class="row">
@@ -36,6 +37,27 @@
         <div class="col-md-3"><%= @synth.build_date%> </div>
       </div>
     </div>
+
+    <div class="col-md-4 col-md-offset-8 synth-booking">
+      <p>Book <%= @synth.name %> for £<%= @synth.price%> per day </p>
+      <%= simple_form_for [@synth, @booking] do |f| %>
+      Start Date
+      <br>
+      <%= f.text_field :start_time, data:{ provide:'datepicker', 'date_format' => 'dd-mm-yyyy', 'date-autoclose' => 'true', 'date_start_date' => Time.now}, autocomplete: "off", id: "start"%>  <i class="fas fa-calendar-alt"></i>
+      <br>
+      <br>
+      End Date
+      <br>
+      <div id = "end-div">
+        <%= f.text_field :end_time, data:{ provide:'datepicker', 'date_format' => 'dd-mm-yyyy', 'date-autoclose' => 'true', 'date_start_date' => Time.now}, autocomplete: "off", id: "end" %>  <i class="fas fa-calendar-alt"></i>
+      </div>
+      <br>
+      <%= f.input :details, label: "Required Tasks" %>
+      <%= f.submit class: "btn btn-warning", value: "Request Booking" %>
+      <%end%>
+      <br>
+    </div>
   </div>
 </div>
+
 

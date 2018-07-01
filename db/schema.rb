@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_17_153059) do
+ActiveRecord::Schema.define(version: 2018_06_30_120603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "synth_id"
+    t.text "details"
+    t.integer "price"
+    t.string "status", default: "pending"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "start_time"
+    t.date "end_time"
+    t.index ["synth_id"], name: "index_bookings_on_synth_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "synths", force: :cascade do |t|
     t.string "name"
@@ -46,7 +60,7 @@ ActiveRecord::Schema.define(version: 2018_06_17_153059) do
     t.boolean "quantumelectrodynamics", default: false
     t.boolean "architecturalengineering", default: false
     t.boolean "hostagenegotiation", default: false
-    t.float "price"
+    t.integer "price"
     t.index ["user_id"], name: "index_synths_on_user_id"
   end
 
