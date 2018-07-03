@@ -2,6 +2,10 @@ class BookingsController < ApplicationController
 before_action :set_synth
 before_action :set_booking, only: [:show, :submit, :destroy]
 
+  def index
+
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user

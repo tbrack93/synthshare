@@ -1,0 +1,157 @@
+<div class="container dashboard">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <br>
+      <h3><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>'s Bookings</h3>
+      <% if @bookings.first.nil?%>
+      <div class="row ">
+        <div class="col-xs-12 text-center no-bookings">
+          <h3> You Currently Have No Bookings</h3>
+          <h3> <%= link_to "+ Find a Synth", synths_path %> </h3>
+        </div>
+      </div>
+      <%else%>
+      <div class="row bookings-heading">
+        <div class="col-xs-2">
+          <p> Booked With </p>
+        </div>
+        <div class="col-xs-1">
+          <p> Start</p>
+        </div>
+        <div class="col-xs-1">
+          <p> End</p>
+        </div>
+        <div class="col-xs-1 text-center">
+          <p> Price</p>
+        </div>
+        <div class="col-xs-3">
+          <p> Request</p>
+        </div>
+        <div class="col-xs-1">
+          <p> Status</p>
+        </div>
+        <div class="col-xs-3 text-center">
+          <p> Actions</p>
+        </div>
+      </div>
+      <% @bookings.each do |booking| %>
+      <div class="row bookings-entry">
+        <div class="col-xs-2">
+          <%=link_to booking.synth do%>
+          <p><strong> <%=booking.synth.name.capitalize%> </strong></p>
+          <%end%>
+        </div>
+        <div class="col-xs-1">
+          <p> <%=booking.start_time.strftime("%d/%m/%Y") %></p>
+        </div>
+        <div class="col-xs-1">
+          <p> <%=booking.end_time.strftime("%d/%m/%Y") %></p>
+        </div>
+        <div class="col-xs-1 text-center">
+          <p> £<%=booking.price%></p>
+        </div>
+        <div class="col-xs-3">
+          <p> <%=booking.details%></p>
+        </div>
+        <div class="col-xs-1">
+          <p class="<%=booking.status%>" id="booking-id-<%=booking.id%>"> <%=booking.status.capitalize%></p>
+        </div>
+        <div class="col-xs-1 text-center">
+          <p>View/Edit</p>
+        </div>
+        <div class="col-xs-1 text-center">
+          <p>Message</p>
+        </div>
+        <div class="col-xs-1 text-center">
+          <p>Cancel</p>
+        </div>
+      </div>
+      <%end%>
+      <%end%>
+      <hr>
+      <h3>My Synths' Bookings</h3>
+      <% if @user.synths.first.nil? %>
+      <div class="row">
+        <div class="col-xs-12 text-center no-bookings">
+          <h3> You Currently Have No Synths </h3>
+          <h3> <%= link_to "+ Add a Synth", new_synth_path %> </h3>
+        </div>
+      </div>
+      <%else%>
+      <div class="row bookings-heading">
+        <div class="col-xs-1">
+          <p> Synth </p>
+        </div>
+        <div class="col-xs-1">
+          <p> Client </p>
+        </div>
+        <div class="col-xs-1">
+          <p> Start</p>
+        </div>
+        <div class="col-xs-1">
+          <p> End</p>
+        </div>
+        <div class="col-xs-1 text-center">
+          <p> Price</p>
+        </div>
+        <div class="col-xs-3">
+          <p> Request</p>
+        </div>
+        <div class="col-xs-1">
+          <p> Status</p>
+        </div>
+        <div class="col-xs-3 text-center">
+          <p> Actions</p>
+        </div>
+      </div>
+      <% @user.synths.each do |synth| %>
+      <div class="row bookings-entry">
+        <div class="col-xs-1">
+          <%=link_to synth do%>
+          <p><strong> <%=synth.name.capitalize%> </strong></p>
+          <%end%>
+        </div>
+        <% if synth.bookings.first.nil? %>
+        <div class="col-xs-3">
+          <p> <%= synth.name.capitalize%> currently has no bookings</p>
+        </div>
+        <%else%>
+        <% synth.bookings.each do |booking| %>
+        <div class="col-xs-1">
+          <p><%=booking.user.first_name.capitalize %>
+          </div>
+          <div class="col-xs-1">
+            <p> <%=booking.start_time.strftime("%d/%m/%Y") %></p>
+          </div>
+          <div class="col-xs-1">
+            <p> <%=booking.end_time.strftime("%d/%m/%Y") %></p>
+          </div>
+          <div class="col-xs-1 text-center">
+            <p> £<%=booking.price%></p>
+          </div>
+          <div class="col-xs-3">
+            <p> <%=booking.details%></p>
+          </div>
+          <div class="col-xs-1">
+            <p class="<%=booking.status%>" id="booking-id-<%=booking.id%>"> <%=booking.status.capitalize%></p>
+          </div>
+          <div class="col-xs-1 text-center">
+            <p>Accept</p>
+          </div>
+          <div class="col-xs-1 text-center">
+            <p>Message</p>
+          </div>
+          <div class="col-xs-1 text-center">
+            <p>Cancel</p>
+          </div>
+        </div>
+        <%end%>
+        <%end%>
+        <%end%>
+        <%end%>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>
+</div>
