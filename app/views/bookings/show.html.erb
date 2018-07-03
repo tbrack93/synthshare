@@ -37,7 +37,7 @@
   <div class ="col-xs-8 col-xs-offset-2 booking-confirm text-right">
     <hr>
     <%= link_to "Remove", synth_booking_path(@synth, @booking), method: :delete, class: "btn btn-primary cancel", data: { confirm: "Are you sure you want to remove this booking?" } %>
-    <%= link_to "Submit", synth_submit_booking_path(@synth, @booking), method: :patch, class: "btn btn-warning" %>
+    <%= link_to "Submit", synth_submit_booking_path(@synth, @booking, :status => "submitted"), method: :patch, class: "btn btn-warning" %>
   </div>
 </div>
 

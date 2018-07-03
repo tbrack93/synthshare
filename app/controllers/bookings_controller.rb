@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 before_action :set_synth
-before_action :set_booking, only: [:show, :submit, :destroy]
+before_action :set_booking, only: [:show, :submit, :status, :destroy]
 
   def index
 
@@ -23,9 +23,13 @@ before_action :set_booking, only: [:show, :submit, :destroy]
   end
 
   def submit
-    @booking.status = "submitted"
+    status
+    redirect_to dashboard_path
+  end
+
+  def status
+    @booking.status = params[:status]
     @booking.save
-    redirect_to @synth
   end
 
   def destroy
@@ -41,7 +45,7 @@ before_action :set_booking, only: [:show, :submit, :destroy]
   end
 
   def set_booking
-    @booking = Booking.find(params[:id])
+    @booking ||= Booking.find(params[:id])
   end
 
   def set_synth

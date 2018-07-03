@@ -4,7 +4,7 @@ class Synth < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   validates :name, presence: true
-  validates :description, presence: true
+  validates :description, presence: true, length: { maximum: 100 }
   validates :body_format, presence: true, inclusion: { in: %w(Male Female Other)}
   validates :model_no, presence: true
   validates :processor, presence: true
