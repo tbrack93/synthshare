@@ -4,6 +4,11 @@
     def home
     end
 
+    def dashboard
+    @user = current_user
+    @bookings = @user.bookings.where.not(status: "pending")
+    end
+
     def show
     end
   end
