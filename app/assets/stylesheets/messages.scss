@@ -1,0 +1,89 @@
+.messages h3 {
+  padding-left: 5px;
+}
+
+.my-message {
+  background: #007EF6;
+  color: white;
+  border-radius: 5px;
+}
+
+.message-tabs {
+  background: #F1F1F1;
+  opacity: 0.8;
+  margin-top: -2px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.tab{
+  background: #F1F1F1;
+  padding-left: 5px;
+}
+
+.tab a {
+  color: black;
+  text-decoration: none;
+}
+
+.tab:hover {
+  background: #e0e0e0;
+}
+
+.active-tab {
+  background: #d6d6d6;
+}
+
+.their-message {
+  background: #07A674;
+  border-radius: 5px;
+  color: white;
+}
+
+.theirs-filler {
+  margin-left: 0px;
+}
+
+.message-content {
+  background: #f9f9f9;
+  min-height: 50vh;
+  padding-top: 10px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+}
+
+.message-body {
+  margin-bottom: 5px;
+}
+
+.timeframe {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: -5px;
+  margin-bottom: 0px;
+  padding-bottom: 15px;
+}
+
+.new-message {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.form-control {
+  font-size: 14px;
+}
+
+.booking-conversation {
+  display: none;
+}
+
+#active-conversation {
+  display: block;
+}
+
+
+

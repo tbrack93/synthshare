@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :synths
   has_many :bookings
+  has_many :messages
 
 
   geocoded_by :address
