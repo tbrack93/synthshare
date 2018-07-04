@@ -10,11 +10,11 @@ before_action :set_booking, only: [:edit, :update, :show, :submit, :status, :des
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.synth = @synth
-    @booking.price = @synth.price * (@booking.end_time - @booking.start_time)
+    @booking.price = (@synth.price) * ((@booking.end_time - @booking.start_time)+1).to_i
     if @booking.save
       redirect_to synth_booking_path(@synth, @booking)
     else
-      render "new"
+      render "/synths/show"
     end
   end
 

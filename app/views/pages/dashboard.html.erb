@@ -112,14 +112,19 @@
             <%=link_to "#{synth.name.capitalize}", synth%>
           </p>
         </div>
+        </div>
         <% if synth.bookings.first.nil? %>
-        <div class="col-xs-3">
+        <div class="row bookings-entry">
+        <div class="col-xs-5 col-xs-offset-1">
           <p> <%= synth.name.capitalize%> currently has no bookings</p>
         </div>
+      </div>
         <%else%>
         <% synth.bookings.each do |booking| %>
-        <div class="col-xs-1">
-          <p><%=booking.user.first_name.capitalize %>
+
+        <div class="row bookings-entry">
+        <div class="col-xs-1 col-xs-offset-1">
+          <p><%=booking.user.first_name.capitalize %></p>
           </div>
           <div class="col-xs-1">
             <p> <%=booking.start_time.strftime("%d/%m/%Y") %></p>
@@ -149,6 +154,7 @@
         <%end%>
         <%end%>
         <%end%>
+        </div>
         <%end%>
       </div>
       <hr>
