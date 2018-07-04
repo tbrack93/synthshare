@@ -23,13 +23,18 @@ before_action :set_booking, only: [:show, :submit, :status, :destroy]
   end
 
   def submit
-    status
+    @booking.status = params[:status]
+    @booking.save
     redirect_to dashboard_path
   end
 
   def status
     @booking.status = params[:status]
     @booking.save
+    respond_to do |format|
+      format.html { redirect_to dashboard_path }
+      format.js
+    end
   end
 
   def destroy

@@ -55,7 +55,7 @@
           <p> <%=booking.details%></p>
         </div>
         <div class="col-xs-1">
-          <p class="<%=booking.status%>" id="booking-id-<%=booking.id%>"> <%=booking.status.capitalize%></p>
+          <p id="status-booking<%=booking.id%>"> <span class="<%=booking.status%>" id="status-value<%=booking.id%>"> <%=booking.status.capitalize%> </span> </p>
         </div>
         <div class="col-xs-1 text-center">
           <p><%= link_to "View/Edit", synth_booking_path(booking.synth, booking)%></p>
@@ -134,7 +134,7 @@
             <p> <%=booking.details%></p>
           </div>
           <div class="col-xs-1">
-            <p class="<%=booking.status%>" id="booking-id-<%=booking.id%>"> <%=booking.status.capitalize%></p>
+            <p id="status-booking<%=booking.id%>"> <span class="<%=booking.status%>" id="status-value<%=booking.id%>"> <%=booking.status.capitalize%> </span> </p>
           </div>
           <div class="col-xs-1 text-center">
             <p><%= link_to "Accept", synth_status_booking_path(booking.synth, booking, :status => "accepted"), method: :patch,  remote: true%></p>
