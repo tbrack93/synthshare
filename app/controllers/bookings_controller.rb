@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 before_action :set_synth
-before_action :set_booking, only: [:show, :submit, :status, :destroy]
+before_action :set_booking, only: [:edit, :update, :show, :submit, :status, :destroy]
 
   def index
 
@@ -20,6 +20,15 @@ before_action :set_booking, only: [:show, :submit, :status, :destroy]
 
   def show
     redirect_to @synth unless @booking.user == current_user
+  end
+
+  def edit
+
+  end
+
+  def update
+    @booking.update(booking_params)
+    redirect_to dashboard_path
   end
 
   def submit

@@ -1,7 +1,13 @@
 <br>
 <div class = "text-center">
   <h3> Your Booking </h3>
+  <% if @booking.status=="pending"%>
   <p> Confirm details of your booking before sending request to the Synth's owner</p>
+  <%elsif @booking.start_time < Time.now %>
+  <p> This booking is in the past and can no longer be changed</p>
+  <%else%>
+  <p> This booking's status is: <%=@booking.status.capitalize%></p>
+  <%end%>
 </div>
 <div class = "row">
   <div class ="col-xs-8 col-xs-offset-2 booking-confirm">
@@ -36,8 +42,16 @@
 <div class = "row">
   <div class ="col-xs-8 col-xs-offset-2 booking-confirm text-right">
     <hr>
+    <% if @booking.status == "pending" %>
     <%= link_to "Remove", synth_booking_path(@synth, @booking), method: :delete, class: "btn btn-primary cancel", data: { confirm: "Are you sure you want to remove this booking?" } %>
     <%= link_to "Submit", synth_submit_booking_path(@synth, @booking, :status => "submitted"), method: :patch, class: "btn btn-warning" %>
+    <% elsif @booking.status == "cancelled" || @booking.start_time < Time.now %>
+    <%= link_to "Back", dashboard_path, class: "btn btn-warning" %>
+    <% elsif @booking.status == "submitted" %>
+    <%= link_to "Back", dashboard_path, class: "btn btn-warning" %>
+     <%= link_to "Edit", edit_synth_booking_path(@synth, @booking), class: "btn btn-primary" %>
+    <%= link_to "Cancel", synth_status_booking_path(@synth, @booking, :status => "cancelled"), method: :patch, class: "btn btn-danger" %>
+    <%end%>
   </div>
 </div>
 
