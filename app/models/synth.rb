@@ -1,6 +1,7 @@
 class Synth < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_many :messages, through: :bookings
   mount_uploader :photo, PhotoUploader
 
   validates :name, presence: true

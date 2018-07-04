@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get 'dashboard', to: 'pages#dashboard'
+  resources :messages, only: [:index, :create]
   resources :synths do
     resources :bookings, except: [:index, :new]
     patch '/bookings/:id/submit', to: 'bookings#submit', as: 'submit_booking'
