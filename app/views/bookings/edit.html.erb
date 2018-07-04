@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-xs-4 col-xs-offset-4">
+    <br>
+    <h4 class="text-center">Edit your booking with <%=@booking.synth.name.capitalize%></h4>
+    <br>
+    <%= simple_form_for [@synth, @booking] do |f| %>
+      Start Date
+      <br>
+      <%= f.text_field :start_time, data:{ provide:'datepicker', 'date_format' => 'dd-mm-yyyy', 'date-autoclose' => 'true', 'date_start_date' => Time.now}, autocomplete: "off", id: "start"%>  <i class="fas fa-calendar-alt"></i>
+      <br>
+      <br>
+      End Date
+      <br>
+      <div id = "end-div">
+        <%= f.text_field :end_time, data:{ provide:'datepicker', 'date_format' => 'dd-mm-yyyy', 'date-autoclose' => 'true', 'date_start_date' => Time.now}, autocomplete: "off", id: "end" %>  <i class="fas fa-calendar-alt"></i>
+      </div>
+      <br>
+      <%= f.input :details, label: "Required Tasks" %>
+      <%= f.submit class: "btn btn-warning", value: "Update" %>
+      <%= link_to "Back", synth_booking_path(@booking.synth, @booking), class: "btn btn-primary" %>
+      <%end%>
+  </div>
+</div>
