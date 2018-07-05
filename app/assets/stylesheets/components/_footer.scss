@@ -1,0 +1,56 @@
+* {
+ box-sizing: border-box;
+}
+*:before,
+*:after {
+ box-sizing: border-box;
+}
+html,
+body {
+ height: 100%;
+ position: relative;
+}
+
+.footer {
+  background: #2F2E2E;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  color: white;
+  height: 40px;
+  padding-top: 10px;
+  color: rgba(0,0,0,0.3);
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  margin-top: 20px;
+  margin:auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.footer-box{
+  display: flex;
+  color: white;
+  justify-content:space-around;
+  a {
+    margin-right: 40px;
+    margin-top: 29px;
+  }
+  p {
+    text-align: center;
+  }
+}
+
+
+.main-container {
+ min-height: 100vh; /* will cover the 100% of viewport */
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 50px; /* height of your footer */
+}
+
+
