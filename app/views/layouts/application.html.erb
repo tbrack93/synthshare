@@ -18,14 +18,18 @@
     <link href="https://fonts.googleapis.com/css?family=Poiret+One|Quicksand:300" rel="stylesheet">
   </head>
   <body>
+    <div class= "main-container">
+      <div class="header">
     <%= render 'shared/nav' %>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  </div>
+    <%= render 'shared/footer' %>
+  </div>
     <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_pack_tag 'map' %>
     <%= javascript_pack_tag 'datepick'%>
+
   </body>
 </html>
