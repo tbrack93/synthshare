@@ -34,6 +34,10 @@ before_action :set_booking, only: [:edit, :update, :show, :submit, :status, :des
   def submit
     @booking.status = params[:status]
     @booking.save
+    @message = Message.new(content: "Please may I rent #{@booking.synth.name} between #{@booking.start_time.strftime("%d/%m/%Y")} and #{@booking.end_time.strftime("%d/%m/%Y")}?")
+    @message.booking = @booking
+    @message.user = current_user
+    @message.save
     redirect_to dashboard_path
   end
 
