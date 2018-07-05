@@ -16,6 +16,11 @@ before_action :set_synth, except: [:new, :index, :create]
 
   def show
     @booking = Booking.new
+    @markers =
+  {
+    lat: @synth.user.latitude,
+    lng: @synth.user.longitude,
+  }
   end
 
 
