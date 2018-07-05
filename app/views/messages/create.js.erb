@@ -1,1 +1,3 @@
-document.getElementById("active-conversation").insertAdjacentHTML('beforeend', "<div class='col-xs-6 col-xs-offset-6 message-body my-message'><p><%= @message.content %></p></div>")
+let conversation = document.getElementsByClassName("active-conversation")[0]
+let form = conversation.getElementsByClassName("new-message")[0]
+form.insertAdjacentHTML('beforeBegin', "<div class='col-xs-6 col-xs-offset-6 message-body my-message'><p><%= @message.content %></p></div>");
