@@ -73,15 +73,19 @@
   font-size: 14px;
 }
 
-.form-control {
+.messages.form-control {
   font-size: 14px;
+}
+
+.messages abbr {
+  display:none;
 }
 
 .booking-conversation {
   display: none;
 }
 
-#active-conversation {
+.active-conversation {
   display: block;
 }
 

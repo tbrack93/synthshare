@@ -2,8 +2,12 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @bookings = current_user.bookings.where.not(status: "pending")
-    @synths = current_user.synths
+    @bookings = []
+    mybookings = current_user.bookings.where.not(status: "pending")
+    mysynthbookings = current_user.synths.map {|synth| synth.bookings}
+    @bookings << mybookings
+    @bookings << mysynthbookings.flatten
+    @bookings.flatten!
   end
 
   def create

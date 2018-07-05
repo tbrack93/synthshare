@@ -9,27 +9,32 @@
         <%else%>
         <div class="tab" id=<%= "booking-#{booking.id}"%>>
           <%end%>
+          <%if booking.user == current_user %>
           <a href="#"><p> My booking with <%= booking.synth.name %> </p>
-            <p class="timeframe"> <%= booking.start_time.strftime("%d/%m/%Y")%> - <%= booking.end_time.strftime("%d/%m/%Y") %> </p></a>
-          </div>
-          <%end%>
-
-          <% @synths.each do |synth| %>
-          <% synth.bookings.each do |booking| %>
-          <div class="tab" id=<%= "booking-#{booking.id}"%>>
-            <a href="#"><p> Booking request for <%= synth.name %> </p>
+            <%else%>
+            <a href="#"><p> Booking Request for <%= booking.synth.name %> </p>
+              <%end%>
               <p class="timeframe"> <%= booking.start_time.strftime("%d/%m/%Y")%> - <%= booking.end_time.strftime("%d/%m/%Y") %> </p></a>
             </div>
-            <%end%>
             <%end%>
           </div>
           <div class="col-xs-6 message-content">
             <% @bookings.each do |booking|%>
             <% if booking == @bookings.first %>
-            <div class="booking-conversation" id="active-conversation">
+            <div class="booking-conversation active-conversation" id=<%="conversation-booking-#{booking.id}"%>>
               <%else%>
-              <div class="booking-conversation">
+              <div class="booking-conversation" id=<%="conversation-booking-#{booking.id}"%>>
                 <%end%>
+                <div class="col-xs-6 text-center">
+                  <%if booking.user == current_user %>
+                  <p><%= booking.synth.user.first_name%></p>
+                  <%else%>
+                  <p><%= booking.user.first_name%></p>
+                  <%end%>
+                </div>
+                <div class="col-xs-6 text-center">
+                  <p>You</p>
+                </div>
                 <% booking.messages.each do |message|%>
                 <% if message.user == current_user%>
                 <div class="col-xs-6 col-xs-offset-6 message-body my-message">
@@ -44,11 +49,11 @@
                 <%end%>
                 <%end%>
                 <div class="col-xs-8 new-message">
-                  <%= simple_form_for @message do |f| %>
+                  <%= simple_form_for @message, remote: true do |f| %>
                   <%= f.input :content, label: "New Message" %>
                   <%= f.hidden_field :user_id, value: current_user.id %>
                   <%= f.hidden_field :booking_id, value: booking.id %>
-                  <%= f.submit "Send", remote: true%>
+                  <%= f.submit "Send"%>
                 </div>
               </div>
               <%end%>
@@ -56,3 +61,4 @@
             </div>
           </div>
         </div>
+        <%= javascript_pack_tag 'conversations'%>
