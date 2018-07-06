@@ -1,0 +1,15 @@
+#search-form.search-input {
+  margin-top: 7px;
+  background: #2F2E2E;
+  color: white;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-size: 14px;
+}
+
+#search-form.search-input::placeholder {
+  color: white;
+  opacity: 0.8;
+  font-size: 14px;
+}
