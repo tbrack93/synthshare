@@ -20,6 +20,7 @@ before_action :set_synth, except: [:new, :index, :create]
       hash = {
           lat: synth.user.latitude,
           lng: synth.user.longitude,
+          infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { synth: synth }) }
              }
       @markers << hash
     end
