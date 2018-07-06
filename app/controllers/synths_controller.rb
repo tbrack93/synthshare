@@ -3,7 +3,7 @@ before_action :set_synth, except: [:new, :index, :create]
 
   def index
     if params[:location].present?
-      users = User.near(params[:location], 20)
+      users = User.near("#{params[:location]} UK", 15)
       location_synths = []
       users.each do |user|
         user.synths.each do |synth|
