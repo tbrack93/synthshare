@@ -3,7 +3,7 @@ before_action :set_synth, except: [:new, :index, :create]
 
   def index
     if params[:location].present?
-      users = User.near(params[:location], 20)
+      users = User.near("#{params[:location]} UK", 15)
       location_synths = []
       users.each do |user|
         user.synths.each do |synth|
@@ -20,6 +20,7 @@ before_action :set_synth, except: [:new, :index, :create]
       hash = {
           lat: synth.user.latitude,
           lng: synth.user.longitude,
+          infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { synth: synth }) }
              }
       @markers << hash
     end
