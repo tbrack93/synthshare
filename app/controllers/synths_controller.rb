@@ -2,7 +2,18 @@ class SynthsController < ApplicationController
 before_action :set_synth, except: [:new, :index, :create]
 
   def index
+    if params[:location].present?
+      users = User.near(params[:location], 20)
+      location_synths = []
+      users.each do |user|
+        user.synths.each do |synth|
+          location_synths << synth
+        end
+      end
+      @synths = location_synths
+    else
     @synths = Synth.all
+    end
 
     @markers = []
     @synths.each do |synth|
