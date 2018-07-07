@@ -12,7 +12,12 @@
       <%= f.input :password_confirmation, required: true %>
       <%= f.input :first_name, required: true %>
       <%= f.input :last_name, required: true %>
-      <%= f.input :address%>
+      <%= f.input :address, required: true%>
+      <div class="sensitive-disclaimer">
+        <%= f.input :disclaimer, label: "I do not work in a government, military or other sensitive position", required: true%>
+      </div>
+      <%= f.input :disclaimer, label: "I consent to receive notification emails"%>
+
     </div>
 
     <div class="form-actions">
