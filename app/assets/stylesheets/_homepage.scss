@@ -1,0 +1,15 @@
+.main-heading {
+  padding-top: 20vh;
+}
+
+.main-image-holder{
+  position: relative;
+  height: calc(100vh - 50px);
+}
+
+#main-image{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 85vh;
+}
