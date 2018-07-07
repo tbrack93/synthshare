@@ -1,0 +1,60 @@
+.main-heading {
+  padding-top: 20vh;
+}
+
+.main-image-holder{
+  position: relative;
+  height: calc(100vh - 50px);
+}
+
+#main-image{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 85vh;
+}
+
+.main-button{
+  color: black;
+  background: white;
+  border: 1px solid orange;
+  transition-duration: 0.3s;
+}
+
+.main-button:hover {
+  color: #f7f7f7;
+  background: orange;
+}
+
+#intro {
+  background-image: url("geometricbackground.jpg");
+  width: 100vw;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+#intro h3 {
+  font-size:22px;
+}
+
+#needs {
+  padding-top:30px;
+}
+
+.task {
+  margin-top:10px;
+  margin-bottom:40px;
+}
+
+#disclaimer {
+  font-size: 10px;
+  margin-top:10px;
+}
+
+.get-started {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
