@@ -1,13 +1,109 @@
-<div class="container home">
-  <div class="row">
-    <div class="frontpage">
-      <div class="col-xs-4 col-md-offset-2 main-heading">
-        <h1> RENT VETTED SYNTHS</h1>
-        <p> All the benefits, less of the risk</p>
-      </div>
-      <div class="col-xs-4 main-image-holder">
-       <%= image_tag ("synths.png"), id: "main-image" %>
-     </div>
+<div class="home">
+  <div class="frontpage">
+    <div class="col-xs-4 col-md-offset-2 main-heading">
+      <h1> RENT VETTED SYNTHS</h1>
+      <p> All the benefits, less of the risk</p>
+      <br>
+      <%= link_to "Get Started", synths_path, class:"btn main-button" %>
+    </div>
+    <div class="col-xs-4 main-image-holder">
+     <%= image_tag ("synths.png"), id: "main-image" %>
    </div>
  </div>
+ <div class="col-xs-12" id="intro">
+   <div class="col-xs-12 text-center">
+    <h3> How It Works </h3>
+    <br>
+  </div>
+  <div class="col-xs-3">
+    <p> Find new model 'orange eye' Synths in your area</p>
+  </div>
+  <div class="col-xs-3">
+    <p> Chat with Synth's owner before commitment</p>
+  </div>
+  <div class="col-xs-3">
+    <p> All Synths fully vetted for normal behaviours </p>
+  </div>
+  <div class="col-xs-3">
+    <p> Synth insurance included with your booking<sup>*</sup></p>
+  </div>
+  <div class="col-xs-12 text-center" id="needs">
+    <h3> Local Synths For All Your Needs </h3>
+    <br>
+  </div>
+  <div class="col-xs-3 task">
+    <p><i class="fas fa-home"></i> Housework</p>
+  </div>
+  <div class="col-xs-3 task">
+    <p><i class="fas fa-child"></i> Child and animalcare</p>
+  </div>
+  <div class="col-xs-3 task">
+    <p><i class="fas fa-car"></i> Errands and driving </p>
+  </div>
+  <div class="col-xs-3 task">
+    <p><i class="fas fa-shield-alt"></i> Protection services </p>
+  </div>
+  <div class="col-xs-3 task">
+    <p><i class="fas fa-medkit"></i> Healthcare</p>
+  </div>
+  <div class="col-xs-3 task">
+    <p><i class="fas fa-wrench"></i> Construction</p>
+  </div>
+  <div class="col-xs-3 task">
+    <p><i class="fas fa-leaf"></i> Gardening </p>
+  </div>
+  <div class="col-xs-3 task">
+    <p><i class="fas fa-flask"></i> Scientific Research </p>
+  </div>
+  <div class="col-xs-3 col-xs-offset-9" id="disclaimer">
+    <p> <sup>*</sup>Does not cover Day Zero type events</p>
+  </div>
+</div>
+</div>
+<div class="col-xs-12 text-center">
+  <h3> Recently Added Synths </h3>
+  <br>
+</div>
+<div class="col-xs-8 col-xs-offset-2 cards">
+  <% @synths.each do |synth|%>
+  <%=link_to synth_path synth do%>
+  <div class="col-xs-12 index-card">
+   <div class="card-photo" style="background-image: url('<%= synth.photo %>');">
+   </div>
+   <div class="card-content">
+    <div class="title">
+      <p class="left"> <%=synth.name%> </p>
+      <p class="right"> <%=synth.model_no %> </p>
+      <div style="clear: both;"></div>
+    </div>
+
+    <div class="card-price">
+     <p> £<%=synth.price.round(2) %> / hour </p>
+   </div>
+
+   <div class="card-description">
+    <p>
+     <%=synth.description %>
+   </p>
+ </div>
+ <div class="col-xs-4 processor">
+  <p>Processor  </p>
+  <%= synth.processor.split(" ").last %>
+</div>
+<div class="col-xs-4 memory text-center">
+  <p>Memory</p>
+  <%= synth.memory%>
+</div>
+<div class="col-xs-4 battery text-center ">
+  <p>Battery</p>
+  <%= synth.battery_life%>
+</div>
+</div>
+</div>
+<%end%>
+<%end%>
+<br>
+<div class="col-xs-12 text-center get-started">
+  <%= link_to "Get Started", synths_path, class:"btn main-button" %>
+</div>
 </div>
