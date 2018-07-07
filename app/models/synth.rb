@@ -14,6 +14,7 @@ class Synth < ApplicationRecord
   validates :build_date, presence: true
   validates :photo, presence: true
   validates :price, presence: true
+  validates :disclaimer, acceptance: { accept: true}
 
   def skills
     skills = []
