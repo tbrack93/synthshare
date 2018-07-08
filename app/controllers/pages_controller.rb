@@ -17,6 +17,9 @@
     def contact
     end
 
+    def about
+    end
+
     def contactmail
     PageMailer.contact(params).deliver_now
     redirect_to synths_path
