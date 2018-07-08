@@ -3,12 +3,17 @@
   <br>
   <div class="col-xs-5 col-xs-offset-2">
     <div class="col-xs-6 text-right">
+      <p> Your Email: </p>
+      <br>
       <p> Subject: </p>
       <br>
       <p> Message: </p>
     </div>
     <div class="col-xs-6">
       <%= form_tag contactmail_path, method:'get' do %>
+      <%= text_field_tag :email, params[:email], size: "28x1"%>
+      <br>
+      <br>
       <%= text_field_tag :subject, params[:subject], size: "28x1"%>
       <br>
       <br>

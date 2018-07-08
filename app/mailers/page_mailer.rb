@@ -4,7 +4,7 @@ class PageMailer < ApplicationMailer
     @body = params[:body]
     mail(
       to: "#{ENV['EMAIL']}",
-      subject: params[:subject]
+      subject: "#{params[:subject]} (from #{params[:email]})"
       )
   end
 
