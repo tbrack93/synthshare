@@ -13,4 +13,13 @@
 
     def show
     end
+
+    def contact
+    end
+
+    def contactmail
+    PageMailer.contact(params).deliver_now
+    redirect_to synths_path
+    end
+
   end

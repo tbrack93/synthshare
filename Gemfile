@@ -30,6 +30,7 @@ gem 'font-awesome-sass', '~> 5.0.9'
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'date_validator'
+gem 'postmark-rails'
 
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -66,6 +67,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "letter_opener"
 end
 
 group :test do
