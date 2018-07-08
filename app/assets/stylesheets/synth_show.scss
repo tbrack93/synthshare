@@ -80,3 +80,18 @@
   margin-bottom: 20px;
   margin-top: 10px;
 }
+
+.owner-actions {
+  color: black;
+  margin-bottom:20px;
+}
+
+.owner-actions a{
+  color: black;
+  opacity: 0.6;
+}
+
+.owner-actions a:hover{
+  text-decoration: none;
+  opacity: 1;
+}

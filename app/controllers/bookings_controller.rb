@@ -1,16 +1,14 @@
 class BookingsController < ApplicationController
 before_action :set_synth
-before_action :set_booking, only: [:edit, :update, :show, :submit, :status, :destroy]
+before_action :set_booking, except: [:create]
 
-  def index
-
-  end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.synth = @synth
     @booking.price = (@synth.price) * ((@booking.end_time - @booking.start_time)+1).to_i
+    authorize @booking
     if @booking.save
       redirect_to synth_booking_path(@synth, @booking)
     else
@@ -19,20 +17,22 @@ before_action :set_booking, only: [:edit, :update, :show, :submit, :status, :des
   end
 
   def show
-    redirect_to @synth unless @booking.user == current_user
+    authorize @booking
   end
 
   def edit
-
+    authorize @booking
   end
 
   def update
+    authorize @booking
     @booking.update(booking_params)
     redirect_to dashboard_path
   end
 
   def submit
     @booking.status = params[:status]
+    authorize @booking
     @booking.save
     @message = Message.new(content: "Please may I rent #{@booking.synth.name} between #{@booking.start_time.strftime("%d/%m/%Y")} and #{@booking.end_time.strftime("%d/%m/%Y")}?")
     @message.booking = @booking
@@ -43,6 +43,7 @@ before_action :set_booking, only: [:edit, :update, :show, :submit, :status, :des
 
   def status
     @booking.status = params[:status]
+    authorize @booking
     @booking.save
     respond_to do |format|
       format.html { redirect_to dashboard_path }
@@ -51,6 +52,7 @@ before_action :set_booking, only: [:edit, :update, :show, :submit, :status, :des
   end
 
   def destroy
+    authorize @booking
     @booking.destroy
     redirect_to @synth
   end

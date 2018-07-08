@@ -38,7 +38,25 @@
       </div>
     </div>
 
-    <div class="col-md-4 col-md-offset-8 synth-booking">
+    <div class="col-xs-4 col-xs-offset-8 synth-booking">
+      <% if policy(@synth).edit? %>
+      <p>Owner Actions </p>
+      <div class="col-xs-8 col-xs-offset-4 owner-actions">
+        <%= link_to  edit_synth_path(@synth) do%>
+        <i class="fas fa-edit"></i> Edit
+        <%end%>
+        <br>
+        <br>
+        <%= link_to synth_path(@synth), method: :delete, data: { confirm: "Are you sure you want to remove this booking?" }  do%>
+        <i class="far fa-trash-alt"></i> Delete
+        <%end%>
+        <br>
+        <br>
+        <%= link_to dashboard_path do%>
+        <i class="fas fa-user-alt"></i> View Bookings
+        <%end%>
+      </div>
+      <% else%>
       <p>Book <%= @synth.name %> for £<%= @synth.price%> per day </p>
       <%= simple_form_for [@synth, @booking] do |f| %>
       Start Date
@@ -57,6 +75,7 @@
       <%end%>
       <br>
     </div>
+    <%end%>
   </div>
 </div>
 <br>

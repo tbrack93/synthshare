@@ -2,6 +2,7 @@ class SynthsController < ApplicationController
 before_action :set_synth, except: [:new, :index, :create]
 
   def index
+    @synths = Synth.all
     if params[:location].present?
       users = User.near("#{params[:location]} UK", 15)
       location_synths = []
@@ -11,9 +12,9 @@ before_action :set_synth, except: [:new, :index, :create]
         end
       end
       @synths = location_synths
-    else
-    @synths = Synth.all
     end
+    @synths.each { |synth| authorize synth, :index? }
+
 
     @markers = []
     @synths.each do |synth|
@@ -28,6 +29,7 @@ before_action :set_synth, except: [:new, :index, :create]
 
   def show
     @booking = Booking.new
+    authorize @synth
     @markers =
   {
     lat: @synth.user.latitude,
@@ -35,19 +37,40 @@ before_action :set_synth, except: [:new, :index, :create]
   }
   end
 
-
   def new
     @synth = Synth.new
+    authorize @synth
   end
 
   def create
     @synth = Synth.new(synth_params)
     @synth.user = current_user
+    authorize @synth
     if @synth.save
       redirect_to synth_path(@synth)
     else
       render "new"
     end
+  end
+
+  def edit
+    authorize @synth
+  end
+
+  def update
+    authorize @synth
+    @synth.update(synth_params)
+    if @synth.save
+      redirect_to synth_path(@synth)
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    authorize @synth
+    @synth.delete
+    redirect_to synths_path
   end
 
 

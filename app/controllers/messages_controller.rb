@@ -2,16 +2,19 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
+    authorize @message
     @bookings = []
     mybookings = current_user.bookings.where.not(status: "pending")
     mysynthbookings = current_user.synths.map {|synth| synth.bookings}
     @bookings << mybookings
     @bookings << mysynthbookings.flatten
     @bookings.flatten!
+    @bookings.each { |booking| authorize booking, :index? }
   end
 
   def create
     @message = Message.new(message_params)
+    authorize @message
     @message.save
     respond_to do |format|
       format.html { redirect_to messages_path }

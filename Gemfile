@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
 gem 'devise'
+gem 'pundit'
 gem 'jquery-rails'
 gem 'popper_js'
 gem 'bootstrap-sass'
@@ -29,6 +30,7 @@ gem 'font-awesome-sass', '~> 5.0.9'
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'date_validator'
+
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
