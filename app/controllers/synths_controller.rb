@@ -1,5 +1,5 @@
 class SynthsController < ApplicationController
-before_action :set_synth, except: [:new, :index, :create]
+  before_action :set_synth, except: [:new, :index, :create]
 
   def index
     @synths = Synth.all
@@ -11,7 +11,11 @@ before_action :set_synth, except: [:new, :index, :create]
           location_synths << synth
         end
       end
-      @synths = location_synths
+      if location_synths.empty?
+        @searchresults = false
+      else
+        @synths = location_synths
+      end
     end
     @synths.each { |synth| authorize synth, :index? }
 
@@ -19,10 +23,10 @@ before_action :set_synth, except: [:new, :index, :create]
     @markers = []
     @synths.each do |synth|
       hash = {
-          lat: synth.user.latitude,
-          lng: synth.user.longitude,
-          infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { synth: synth }) }
-             }
+        lat: synth.user.latitude,
+        lng: synth.user.longitude,
+        infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { synth: synth }) }
+      }
       @markers << hash
     end
   end
@@ -31,10 +35,10 @@ before_action :set_synth, except: [:new, :index, :create]
     @booking = Booking.new
     authorize @synth
     @markers =
-  {
-    lat: @synth.user.latitude,
-    lng: @synth.user.longitude,
-  }
+    {
+      lat: @synth.user.latitude,
+      lng: @synth.user.longitude,
+    }
   end
 
   def new
@@ -74,12 +78,12 @@ before_action :set_synth, except: [:new, :index, :create]
   end
 
 
-private
+  private
   def synth_params
     params.require(:synth).permit(:name, :description, :body_format, :price, :model_no, :processor, :memory, :battery_life, :build_date,
-    :cleaning, :cooking, :childcare, :diy, :construction, :painting, :gardening, :healthcare,
-    :elderlycare, :animalcare, :driving, :self_defense, :security, :entertainment, :photo, :cardiothoracic,
-    :quantumelectrodynamics, :architecturalengineering)
+      :cleaning, :cooking, :childcare, :diy, :construction, :painting, :gardening, :healthcare,
+      :elderlycare, :animalcare, :driving, :self_defense, :security, :entertainment, :photo, :cardiothoracic,
+      :quantumelectrodynamics, :architecturalengineering)
   end
 
   def set_synth

@@ -1,6 +1,12 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-8 cards">
+      <% if @searchresults == false %>
+      <div class="col-xs-12 no-results">
+        <h3> Your Search Returned Zero Results </h3>
+        <p> Please search again or select one of the below synths from other locations</p>
+      </div>
+        <%end%>
       <% @synths.each do |synth|%>
       <%=link_to synth_path synth do%>
       <div class="col-xs-12 col-sm-4 index-card">
