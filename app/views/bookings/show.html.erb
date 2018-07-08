@@ -50,7 +50,7 @@
     <% elsif @booking.status == "submitted" %>
     <%= link_to "Back", dashboard_path, class: "btn btn-warning" %>
      <%= link_to "Edit", edit_synth_booking_path(@synth, @booking), class: "btn btn-primary" %>
-    <%= link_to "Cancel", synth_status_booking_path(@synth, @booking, :status => "cancelled"), method: :patch, class: "btn btn-danger" %>
+    <%= link_to "Cancel Booking", synth_status_booking_path(@synth, @booking, :status => "cancelled"), method: :patch, class: "btn btn-danger" %>
     <%end%>
   </div>
 </div>

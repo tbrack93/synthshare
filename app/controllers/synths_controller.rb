@@ -44,8 +44,8 @@ before_action :set_synth, except: [:new, :index, :create]
 
   def create
     @synth = Synth.new(synth_params)
-    authorize @synth
     @synth.user = current_user
+    authorize @synth
     if @synth.save
       redirect_to synth_path(@synth)
     else
