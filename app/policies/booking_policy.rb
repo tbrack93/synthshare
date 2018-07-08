@@ -22,7 +22,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    user_is_owner?
+    user_is_owner? || record.synth.user == user
   end
 
   def status?

@@ -8,6 +8,7 @@ before_action :set_booking, except: [:create]
     @booking.user = current_user
     @booking.synth = @synth
     @booking.price = (@synth.price) * ((@booking.end_time - @booking.start_time)+1).to_i
+    @booking.lastmessage = Time.now
     authorize @booking
     if @booking.save
       redirect_to synth_booking_path(@synth, @booking)

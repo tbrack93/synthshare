@@ -9,7 +9,8 @@ class MessagesController < ApplicationController
     @bookings << mybookings
     @bookings << mysynthbookings.flatten
     @bookings.flatten!
-    @bookings.each { |booking| authorize booking, :index? }
+    @bookings.sort_by! { |booking| booking.lastmessage}
+    @bookings.reverse!.each { |booking| authorize booking, :index? }
   end
 
   def create
@@ -20,6 +21,11 @@ class MessagesController < ApplicationController
       format.html { redirect_to messages_path }
       format.js
     end
+    booking = @message.booking
+    booking.lastmessage = Time.now
+    booking.unreadmessages += 1
+    authorize booking, :update?
+    booking.save
   end
 
   private
