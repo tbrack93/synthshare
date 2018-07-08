@@ -32,15 +32,15 @@ body {
 
 
 .footer-box{
-  display: flex;
   color: white;
-  justify-content:space-around;
   a {
     margin-right: 40px;
     margin-top: 29px;
+    color: white;
   }
-  p {
-    text-align: center;
+  a:hover {
+    color: orange;
+    text-decoration: none;
   }
 }
 
