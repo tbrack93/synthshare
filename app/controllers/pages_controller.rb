@@ -8,6 +8,7 @@
     def dashboard
     @user = current_user
     @bookings = @user.bookings.where.not(status: "pending")
+    @bookings.each { |booking| authorize booking, :index? }
     end
 
     def show

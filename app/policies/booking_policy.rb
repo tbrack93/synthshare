@@ -5,6 +5,10 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    user_is_owner? || record.synth.user == user
+  end
+
   def create?
     record.synth.user == user ? false : user_is_owner?
   end

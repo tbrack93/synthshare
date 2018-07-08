@@ -3,7 +3,6 @@ before_action :set_synth, except: [:new, :index, :create]
 
   def index
     @synths = Synth.all
-    authorize @synths
     if params[:location].present?
       users = User.near("#{params[:location]} UK", 15)
       location_synths = []
@@ -13,8 +12,9 @@ before_action :set_synth, except: [:new, :index, :create]
         end
       end
       @synths = location_synths
-
     end
+    @synths.each { |synth| authorize synth, :index? }
+
 
     @markers = []
     @synths.each do |synth|
