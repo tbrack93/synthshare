@@ -1,0 +1,22 @@
+<div class="container">
+  <h3 class="text-center"> Contact Us </h3>
+  <br>
+  <div class="col-xs-5 col-xs-offset-2">
+    <div class="col-xs-6 text-right">
+      <p> Subject: </p>
+      <br>
+      <p> Message: </p>
+    </div>
+    <div class="col-xs-6">
+      <%= form_tag contactmail_path, method:'get' do %>
+      <%= text_field_tag :subject, params[:subject], size: "28x1"%>
+      <br>
+      <br>
+      <%= text_area_tag :body, params[:body], size: "27x10" %>
+      <br>
+      <%= link_to "Back", synths_path, class: "btn btn-primary" %>
+      <%= submit_tag 'Submit', class: "btn btn-warning" %>
+      <%end%>
+    </div>
+  </div>
+</div>
