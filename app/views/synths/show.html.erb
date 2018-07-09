@@ -1,6 +1,20 @@
 
 <div class="synth-banner">
-  <%= image_tag "#{rand(5)+1}.jpeg" %>
+  <% random = rand(5)+1 %>
+  <% if random == 1 %>
+  <%= image_tag "1.jpeg" %>
+  <% elsif random == 2 %>
+  <%= image_tag "2.jpeg" %>
+  <% elsif random == 3 %>
+  <%= image_tag "3.jpeg" %>
+  <% elsif random == 4 %>
+  <%= image_tag "4.jpeg" %>
+  <% elsif random == 5 %>
+  <%= image_tag "5.jpeg" %>
+  <% else %>
+  <%= image_tag "6.jpeg" %>
+  <%end%>
+
 </div>
 <div class="container">
   <div class="col-xs-12">
