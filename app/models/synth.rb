@@ -32,7 +32,7 @@ class Synth < ApplicationRecord
     skills << "Animalcare" if self.animalcare == true
     skills << "Cardiothoracic Surgery" if self.cardiothoracic == true
     skills << "Driving" if self.driving == true
-    skills << "Self_defense" if self.driving == true
+    skills << "Self defense" if self.self_defense == true
     skills << "Security" if self.security == true
     skills << "Juggling" if self.entertainment == true
     skills << "Hostage Negotiation" if self.hostagenegotiation == true
