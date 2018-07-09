@@ -3,7 +3,7 @@
     <div class="col-xs-10 col-xs-offset-1">
       <br>
       <h3>My Bookings</h3>
-      <% if @bookings.first.nil?%>
+      <% if @bookings.empty?%>
       <div class="row ">
         <div class="col-xs-12 text-center no-bookings">
           <h3> You Currently Have No Bookings</h3>

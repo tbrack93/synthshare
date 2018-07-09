@@ -83,7 +83,7 @@ class SynthsController < ApplicationController
     params.require(:synth).permit(:name, :description, :body_format, :price, :model_no, :processor, :memory, :battery_life, :build_date,
       :cleaning, :cooking, :childcare, :diy, :construction, :painting, :gardening, :healthcare,
       :elderlycare, :animalcare, :driving, :self_defense, :security, :entertainment, :photo, :cardiothoracic,
-      :quantumelectrodynamics, :architecturalengineering)
+      :quantumelectrodynamics, :architecturalengineering, :hostagenegotiation)
   end
 
   def set_synth
