@@ -2,6 +2,13 @@
   <div class="col-xs-11 col-xs-offset-1">
     <h3>My Messages</h3>
     <br>
+    <% if @bookings.empty? %>
+        <div class="row ">
+        <div class="col-xs-12 text-center no-bookings">
+          <h3> You Currently Have No Messages</h3>
+          <h3> <%= link_to "+ Find a Synth", synths_path %> </h3>
+        </div>
+        <%else%>
     <div class="col-xs-4 message-tabs">
       <% @bookings.each do |booking|%>
       <%if booking == @bookings.first %>
@@ -62,6 +69,7 @@
                   <%= f.submit "Send"%>
                 </div>
               </div>
+              <%end%>
               <%end%>
               <%end%>
             </div>
