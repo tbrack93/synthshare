@@ -6,6 +6,7 @@
   background: #007EF6;
   color: white;
   border-radius: 5px;
+  margin-bottom: 1px !important;
 }
 
 .message-tabs {
@@ -38,6 +39,7 @@
   background: #07A674;
   border-radius: 5px;
   color: white;
+  margin-bottom: 1px !important;
 }
 
 .theirs-filler {
@@ -89,5 +91,10 @@
   display: block;
 }
 
-
+.time {
+  opacity: 0.6;
+  font-size: 10px;
+  margin-bottom: 1px;
+  padding-right: 4px;
+}
 
