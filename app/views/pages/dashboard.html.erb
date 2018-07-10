@@ -1,6 +1,6 @@
 <div class="container dashboard">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
       <br>
       <h3>My Bookings</h3>
       <% if @bookings.empty?%>
@@ -12,8 +12,8 @@
       </div>
       <%else%>
       <div class="row bookings-heading">
-        <div class="col-xs-2">
-          <p> Booked With </p>
+        <div class="col-xs-1">
+          <p> With </p>
         </div>
         <div class="col-xs-1">
           <p> Start</p>
@@ -30,23 +30,23 @@
         <div class="col-xs-2 text-center">
           <p> Status</p>
         </div>
-        <div class="col-xs-2 text-center">
+        <div class="col-xs-3 text-center">
           <p> Actions</p>
         </div>
       </div>
       <% @bookings.each do |booking| %>
       <div class="row bookings-entry">
-        <div class="col-xs-2">
+        <div class="col-xs-1">
           <p>
             <%=link_to "#{booking.synth.name.capitalize}", booking.synth %>
           </p>
 
         </div>
         <div class="col-xs-1">
-          <p> <%=booking.start_time.strftime("%d/%m/%Y") %></p>
+          <p> <%=booking.start_time.strftime("%d/%m") %></p>
         </div>
         <div class="col-xs-1">
-          <p> <%=booking.end_time.strftime("%d/%m/%Y") %></p>
+          <p> <%=booking.end_time.strftime("%d/%m") %></p>
         </div>
         <div class="col-xs-1 text-center">
           <p> £<%=booking.price%></p>
@@ -57,8 +57,11 @@
         <div class="col-xs-2 text-center">
           <p id="status-booking<%=booking.id%>"> <span class="<%=booking.status%>" id="status-value<%=booking.id%>"> <%=booking.status.capitalize%> </span> </p>
         </div>
-        <div class="col-xs-1 text-center">
-          <p><%= link_to "View/Edit", synth_booking_path(booking.synth, booking)%></p>
+        <div class="col-xs-1 col-md-2 text-center">
+          <p><%= link_to synth_booking_path(booking.synth, booking) do%>
+             View<span id="edit">/Edit</span>
+             <%end%>
+          </p>
         </div>
         <div class="col-xs-1 text-center">
           <p><%= link_to "Cancel", synth_status_booking_path(booking.synth, booking, :status => "cancelled"), method: :patch,  remote: true%></p>
@@ -124,10 +127,10 @@
           <p><%=booking.user.first_name.capitalize %></p>
           </div>
           <div class="col-xs-1">
-            <p> <%=booking.start_time.strftime("%d/%m/%Y") %></p>
+            <p> <%=booking.start_time.strftime("%d/%m") %></p>
           </div>
           <div class="col-xs-1">
-            <p> <%=booking.end_time.strftime("%d/%m/%Y") %></p>
+            <p> <%=booking.end_time.strftime("%d/%m") %></p>
           </div>
           <div class="col-xs-1 text-center">
             <p> £<%=booking.price%></p>
@@ -138,10 +141,10 @@
           <div class="col-xs-2 text-center">
             <p id="status-booking<%=booking.id%>"> <span class="<%=booking.status%>" id="status-value<%=booking.id%>"> <%=booking.status.capitalize%> </span> </p>
           </div>
-          <div class="col-xs-1 text-center">
+          <div class="col-xs-1 text-center" id="accept">
             <p><%= link_to "Accept", synth_status_booking_path(booking.synth, booking, :status => "accepted"), method: :patch,  remote: true%></p>
           </div>
-          <div class="col-xs-1 text-center">
+          <div class="col-xs-1 text-center" id="cancel">
             <p><%= link_to "Cancel", synth_status_booking_path(booking.synth, booking, :status => "cancelled"), method: :patch,  remote: true%></p>
           </div>
         </div>

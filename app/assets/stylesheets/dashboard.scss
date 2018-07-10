@@ -35,3 +35,23 @@
 .no-bookings a:hover {
   text-decoration: none;
 }
+
+@media only screen and (max-width: 990px) {
+  .dashboard p {
+    font-size:9px !important;
+  }
+
+  #edit {
+    display: none;
+  }
+
+  #accept {
+    padding-left: 0px;
+  }
+
+  #cancel {
+    padding-left: 2px;
+
+  }
+}
+

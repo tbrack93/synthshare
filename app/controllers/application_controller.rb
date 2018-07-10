@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-  after_action :verify_authorized, except: :home, unless: :skip_pundit?
-  after_action :verify_policy_scoped, only: :home, unless: :skip_pundit?
+  after_action :verify_authorized, except: [:home, :contact, :about], unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: [:home, :contact, :about], unless: :skip_pundit?
 
    def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
