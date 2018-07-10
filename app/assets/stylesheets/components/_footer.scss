@@ -30,11 +30,19 @@ body {
   justify-content: space-between;
 }
 
+@media only screen and (max-width: 1000px) {
+    .footer {
+        font-size: 12px;
+    }
+    #copyright {
+      visibility: hidden;
+    }
+}
+
 
 .footer-box{
   color: white;
   a {
-    margin-right: 40px;
     margin-top: 29px;
     color: white;
   }
