@@ -9,38 +9,36 @@
   <p> This booking's status is: <%=@booking.status.capitalize%></p>
   <%end%>
 </div>
-<div class = "row">
-  <div class ="col-xs-8 col-xs-offset-2 booking-confirm">
+  <div class ="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 booking-confirm">
     <hr>
-    <div class ="col-xs-2">
+    <div class ="col-xs-12 col-md-2 photo text-center">
       <%= cl_image_tag(@synth.photo, height: 85)%>
     </div>
-    <div class ="col-xs-2">
-      <p> Synth </p>
+    <div class ="col-xs-12 col-md-2" id="booking-synth-name">
+      <p class = "booking-title"> Synth </p>
       <%= @synth.name %>
       <br>
       <%= @synth.model_no %>
     </div>
-    <div class ="col-xs-3">
-      <p> Your Request </p>
+    <div class ="col-xs-12 col-md-3 booking-details">
+      <p class="booking-title"> Your Request </p>
       <%= @booking.details %>
     </div>
-    <div class ="col-xs-2 text-center">
+    <div class ="col-xs-5 col-md-2 col-md-offset-0 text-center booking-content">
       <p> Start Date </p>
       <%= @booking.start_time.strftime("%d/%m/%Y") %>
     </div>
-    <div class ="col-xs-2 text-center">
+    <div class ="col-xs-5 col-md-2 text-center booking-content">
       <p> End Date </p>
       <%= @booking.end_time.strftime("%d/%m/%Y") %>
     </div>
-    <div class ="col-xs-1 text-center">
+    <div class ="col-xs-2 col-md-1 text-center booking-content">
       <p> Price </p>
       £<%= @booking.price %>
     </div>
   </div>
-</div>
 <div class = "row">
-  <div class ="col-xs-8 col-xs-offset-2 booking-confirm text-right">
+  <div class ="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 booking-confirm text-right">
     <hr>
     <% if @booking.status == "pending" %>
     <%= link_to "Remove", synth_booking_path(@synth, @booking), method: :delete, class: "btn btn-primary cancel", data: { confirm: "Are you sure you want to remove this booking?" } %>

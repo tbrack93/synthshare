@@ -5,3 +5,30 @@
 .cancel {
   margin-right: 10px;
 }
+
+@media only screen and (max-width: 990px) {
+.photo img {
+  height: 25vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#booking-synth-name {
+  text-align: center;
+}
+
+.booking-title {
+  display: none;
+}
+
+.booking-details {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom:15px;
+}
+
+.booking-content {
+  font-size: 14px;
+}
+
+}
