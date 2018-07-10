@@ -1,6 +1,6 @@
 
   <div class="row">
-    <div class="col-xs-12 col-sm-8 cards">
+    <div class="col-xs-12 col-sm-10 col-md-8">
       <% if @searchresults == false %>
       <div class="col-xs-12 no-results">
         <h3> Your Search Returned Zero Results </h3>
@@ -9,7 +9,8 @@
         <%end%>
       <% @synths.each do |synth|%>
       <%=link_to synth_path synth do%>
-      <div class="col-xs-12 col-sm-4 index-card">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-0 col-md-4">
+         <div class="index-card">
          <div class="card-photo" style="background-image: url('<%= synth.photo %>');">
          </div>
           <div class="card-content">
@@ -42,11 +43,12 @@
          </div>
           </div>
         </div>
+      </div>
       <%end%>
       <%end%>
-
  </div>
 </div>
+      <div class= "col-xs-12">
       <div class="map-synths">
         <div
         id="map"
@@ -55,5 +57,6 @@
         data-markers="<%= @markers.to_json %>"
         ></div>
       </div>
+    </div>
 
 
