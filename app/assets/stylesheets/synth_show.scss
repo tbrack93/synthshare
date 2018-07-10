@@ -17,6 +17,12 @@
   float:left;
 }
 
+@media only screen and (max-width: 1000px) {
+  .avatar{
+    margin-left: auto;
+  }
+}
+
 .avatar img {
   border: solid 5px white;
   max-width: 300px;
@@ -36,6 +42,18 @@
  padding-top:20px;
 }
 
+@media only screen and (max-width: 990px) {
+  .synth-body{
+    margin-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .fa-calendar-alt {
+    font-size:17px;
+  }
+}
+
 .synth-body h3 {
   font-size: 20px;
 }
@@ -53,6 +71,19 @@
   margin-right: -25px;
   padding-top: 0px;
   border: 1px solid gray;
+}
+
+@media only screen and (max-width: 990px) {
+  .synth-booking{
+    float: inherit;
+    margin-top:5px;
+    padding-top: 5px;
+    margin-left:10%;
+    margin-right:10%;
+    border: none;
+    background: #f2f2f2
+  }
+
 }
 
 .synth-booking p{
@@ -94,4 +125,12 @@
 .owner-actions a:hover{
   text-decoration: none;
   opacity: 1;
+}
+
+#battery_life {
+  padding-left: 0px;
+}
+
+#processor {
+  padding-left: 0px;
 }
