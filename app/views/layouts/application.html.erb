@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <%= favicon_link_tag %>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121779714-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-121779714-1');
-    </script>
-    <title>Synthshare | Rent Synths to help with your unwanted tasks</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all'%>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Quicksand:300" rel="stylesheet">
-  </head>
-  <body>
-    <div class= "main-container">
-      <div class="header">
-    <%= render 'shared/nav' %>
-    <%= yield %>
-  </div>
+<head>
+  <%= favicon_link_tag %>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121779714-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-121779714-1');
+  </script>
+  <title><%= meta_title %></title>
+  <meta name="description" content="<%= meta_description %>">
+  <!-- Facebook Open Graph data -->
+  <meta property="og:title" content="<%= meta_title %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:image" content="<%= meta_image %>" />
+  <meta property="og:description" content="<%= meta_description %>" />
+  <meta property="og:site_name" content="<%= meta_title %>" />
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+  <meta name="twitter:title" content="<%= meta_title %>">
+  <meta name="twitter:description" content="<%= meta_description %>">
+  <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+  <meta name="twitter:image:src" content="<%= meta_image %>">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all'%>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One|Quicksand:300" rel="stylesheet">
+</head>
+<body>
+  <div class= "main-container">
+    <div class="header">
+      <%= render 'shared/nav' %>
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </div>
-    <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
-    <%= javascript_pack_tag 'map' %>
+  <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_pack_tag 'application' %>
+  <%= javascript_pack_tag 'map' %>
 
-  </body>
+</body>
 </html>

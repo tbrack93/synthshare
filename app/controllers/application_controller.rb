@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :address, :disclaimer, :emailconsent])
   end
 
+  def default_url_options
+  { host: ENV["HOST"] || "localhost:3000" }
+  end
+
   private
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
