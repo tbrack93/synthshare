@@ -1,4 +1,5 @@
 class SynthsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
   before_action :set_synth, except: [:new, :index, :create]
 
   def index
