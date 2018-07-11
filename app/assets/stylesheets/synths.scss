@@ -4,6 +4,18 @@
   padding-bottom: 50px;
 }
 
+.mobile-search {
+  font-size: 12px;
+  display: none;
+}
+
+.mobile-search .btn {
+  font-size: 12px;
+  margin-top: -3px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
 @media only screen and (max-width: 767px) {
   .map-synths{
   position: static !important;
@@ -14,6 +26,10 @@
       width: 100% !important;
       height: 100% !important;
     }
+  }
+
+  .mobile-search {
+    display: block;
   }
 }
 
@@ -30,3 +46,4 @@
     margin-right: auto;
   }
 }
+

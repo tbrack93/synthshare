@@ -60,34 +60,34 @@
     </div>
     <% end %>
   </li>
-    <li class="dropdown" id="nav-dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><%= link_to dashboard_path do %>
-          <i class="fa fa-user"></i> My bookings
-          <% end %>
-        </li>
-        <li><%= link_to messages_path do %>
-          <i class="fa fa-envelope"></i> My messages
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_synth_path do %>
-          <i class="fa fa-user-plus"></i> Add a Synth
-          <% end %>
-        </li>
-        <li role="separator" class="divider"></li>
-        <li><%= link_to destroy_user_session_path, method: :delete do %>
-         <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Log out") %>
-         <% end %>
-       </li>
-     </ul>
-   </li>
-   <%else%>
-   <li><%= link_to "Log in", new_user_session_path%></li>
-   <li><%= link_to "Sign up", new_user_registration_path%></li>
-   <%end%>
- </ul>
+  <li class="dropdown" id="nav-dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><%= link_to dashboard_path do %>
+        <i class="fa fa-user"></i> My bookings
+        <% end %>
+      </li>
+      <li><%= link_to messages_path do %>
+        <i class="fa fa-envelope"></i> My messages
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_synth_path do %>
+        <i class="fa fa-user-plus"></i> Add a Synth
+        <% end %>
+      </li>
+      <li role="separator" class="divider"></li>
+      <li><%= link_to destroy_user_session_path, method: :delete do %>
+       <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Log out") %>
+       <% end %>
+     </li>
+   </ul>
+ </li>
+ <%else%>
+ <li><%= link_to "Log in", new_user_session_path%></li>
+ <li><%= link_to "Sign up", new_user_registration_path%></li>
+ <%end%>
+</ul>
 
 </div><!-- /.container-fluid -->
 </nav>
