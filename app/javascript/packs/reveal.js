@@ -1,6 +1,8 @@
 reveal = document.getElementById("reveal");
 secrets = Array.from(document.getElementsByClassName("hidden"));
-secrets.shift();
+if (secrets[0] != secrets[1]) {
+  secrets.shift();
+}
 
 reveal.addEventListener("click", (event) => {
   secrets.forEach((secret) => {

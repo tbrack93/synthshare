@@ -11,13 +11,13 @@
     </div>
     <div class="col-xs-6 contact-form">
       <%= form_tag contactmail_path, method:'get' do %>
-      <%= text_field_tag :email, params[:email], size: "28x1"%>
+      <%= text_field_tag :email, params[:email], size: "28x1", required: true%>
       <br>
       <br>
-      <%= text_field_tag :subject, params[:subject], size: "28x1"%>
+      <%= text_field_tag :subject, params[:subject], size: "28x1", required: true%>
       <br>
       <br>
-      <%= text_area_tag :body, params[:body], size: "27x10" %>
+      <%= text_area_tag :body, params[:body], size: "27x10", required: true %>
       <br>
       <%= link_to "Back", synths_path, class: "btn btn-primary" %>
       <%= submit_tag 'Submit', class: "btn btn-warning" %>

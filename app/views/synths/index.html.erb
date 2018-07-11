@@ -1,62 +1,70 @@
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8">
-      <% if @searchresults == false %>
-      <div class="col-xs-12 no-results">
-        <h3> Your Search Returned Zero Results </h3>
-        <p> Please search again or select one of the below synths from other locations</p>
-      </div>
-        <%end%>
-      <% @synths.each do |synth|%>
-      <%=link_to synth_path synth do%>
-      <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-0 col-md-4">
-         <div class="index-card">
-         <div class="card-photo" style="background-image: url('<%= synth.photo %>');">
-         </div>
-          <div class="card-content">
-            <div class="title">
-            <p class="left"> <%=synth.name%> </p>
-            <p class="right"> <%=synth.model_no %> </p>
-            <div style="clear: both;"></div>
-            </div>
-
-         <div class="card-price">
-           <p> £<%=synth.price.round(2) %> / day </p>
-         </div>
-
-          <div class="card-description">
-          <p>
-           <%=synth.description %>
-         </p>
-         </div>
-         <div class="col-xs-4 processor">
-          <p>Processor  </p>
-           <%= synth.processor.split(" ").last %>
-         </div>
-         <div class="col-xs-4 memory text-center">
-          <p>Memory</p>
-           <%= synth.memory%>
-         </div>
-         <div class="col-xs-4 battery text-center ">
-          <p>Battery</p>
-           <%= synth.battery_life%>
-         </div>
-          </div>
-        </div>
-      </div>
-      <%end%>
-      <%end%>
- </div>
-</div>
-      <div class= "col-xs-12">
-      <div class="map-synths">
-        <div
-        id="map"
-        style="width:95%;
-        height: 700px;"
-        data-markers="<%= @markers.to_json %>"
-        ></div>
-      </div>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8">
+    <% if @searchresults == false %>
+    <div class="col-xs-12 no-results">
+      <h3> Your Search Returned Zero Results </h3>
+      <p> Please search again or select one of the below synths from other locations</p>
     </div>
+    <%end%>
+    <div class="col-xs-10 col-xs-offset-1 mobile-search text-center">
+      <br>
+      <%= form_tag synths_path, class: "form-inline", :method => 'get' do %>
+        <%= text_field_tag :location, params[:location], label: false, placeholder: "Search By Location" %><i class="fas fa-search", style="color:white;"></i>
+        <%= submit_tag 'Search', class:"btn btn-warning"%>
+      <%end%>
+      <br>
+    </div>
+    <% @synths.each do |synth|%>
+    <%=link_to synth_path synth do%>
+    <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-0 col-md-4">
+     <div class="index-card">
+       <div class="card-photo" style="background-image: url('<%= synth.photo %>');">
+       </div>
+       <div class="card-content">
+        <div class="title">
+          <p class="left"> <%=synth.name%> </p>
+          <p class="right"> <%=synth.model_no %> </p>
+          <div style="clear: both;"></div>
+        </div>
+
+        <div class="card-price">
+         <p> £<%=synth.price.round(2) %> / day </p>
+       </div>
+
+       <div class="card-description">
+        <p>
+         <%=synth.description %>
+       </p>
+     </div>
+     <div class="col-xs-4 processor">
+      <p>Processor  </p>
+      <%= synth.processor.split(" ").last %>
+    </div>
+    <div class="col-xs-4 memory text-center">
+      <p>Memory</p>
+      <%= synth.memory%>
+    </div>
+    <div class="col-xs-4 battery text-center ">
+      <p>Battery</p>
+      <%= synth.battery_life%>
+    </div>
+  </div>
+</div>
+</div>
+<%end%>
+<%end%>
+</div>
+</div>
+<div class= "col-xs-12">
+  <div class="map-synths">
+    <div
+    id="map"
+    style="width:95%;
+    height: 700px;"
+    data-markers="<%= @markers.to_json %>"
+    ></div>
+  </div>
+</div>
 
 

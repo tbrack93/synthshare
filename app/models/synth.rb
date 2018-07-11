@@ -7,7 +7,7 @@ class Synth < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true, length: { maximum: 100 }
   validates :body_format, presence: true, inclusion: { in: %w(Male Female Other)}
-  validates :model_no, presence: true
+  validates :model_no, presence: true, length: { maximum: 7}, format: { with: /PS[a-zA-Z0-9]{5}/ }
   validates :processor, presence: true
   validates :memory, presence: true
   validates :battery_life, presence: true

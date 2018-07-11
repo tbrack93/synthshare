@@ -4,6 +4,16 @@
   margin-bottom:10px;
 }
 
+.about-main a {
+  color: orange;
+  opacity: 0.8;
+}
+
+.about-main a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+
 .about-title {
   font-size: 20px;
   font-family: "montserrat";
