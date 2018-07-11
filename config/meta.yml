@@ -1,0 +1,5 @@
+meta_product_name: "Synthshare"
+meta_title: "Synthshare - Rent Synths to help with your unwanted task"
+meta_description: "Rent vetted Orange Eye Synths in your area for all your chores and errands."
+meta_image: "synthshare.png"                       # should exist in `app/assets/images/`
+twitter_account: "@share_synth"   # required for Twitter Cards
