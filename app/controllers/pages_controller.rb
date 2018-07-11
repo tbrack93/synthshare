@@ -1,5 +1,5 @@
   class PagesController < ApplicationController
-    skip_before_action :authenticate_user!, only: [:home, :about, :contact]
+    skip_before_action :authenticate_user!, only: [:home, :about, :contact, :contactmail]
 
     def home
       @synths = Synth.all.first(3)
@@ -22,7 +22,7 @@
 
     def contactmail
     PageMailer.contact(params).deliver_now
-    redirect_to synths_path
+    redirect_to root_path
     end
 
   end
