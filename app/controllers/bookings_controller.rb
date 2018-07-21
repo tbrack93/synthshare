@@ -39,6 +39,7 @@ before_action :set_booking, except: [:create]
     @message.booking = @booking
     @message.user = current_user
     @message.save
+    PageMailer.newbooking(@message).deliver_now
     redirect_to dashboard_path
   end
 

@@ -1,0 +1,52 @@
+<h3> You have a new Booking request for <%= @booking.synth.name %> </h3>
+
+  <%= cl_image_tag(@synth.photo, height: 85)%>
+   <table style="width:600px">
+    <tr>
+      <td>
+        <p> Synth </p>
+      </td>
+      <td>
+        <p> Request </p>
+      </td>
+      <td>
+        <p> Start Date </p>
+      </td>
+      <td>
+        <p> End Date </p>
+      </td>
+      <td>
+        <p> Price </p>
+      </td>
+      </tr>
+      <tr>
+        <td>
+        <p>
+          <%= @synth.name %>
+          </br>
+          <%= @synth.model_no %>
+        </p>
+      </td>
+      <td>
+        <p>
+          <%= @booking.details %>
+        </p>
+      </td>
+      <td>
+        <p>
+          <%= @booking.start_time.strftime("%d/%m/%Y") %>
+        </p>
+      </td>
+      <td>
+        <p>
+          <%= @booking.end_time.strftime("%d/%m/%Y") %>
+        </p>
+      </td>
+      <td>
+        <p>
+          £<%= @booking.price %>
+        </p>
+      </td>
+    </tr>
+  </table>
+<p> Respond to this booking request by visiting <a href="www.synthsare.co.uk/dashboard">My Bookings</a></p>
