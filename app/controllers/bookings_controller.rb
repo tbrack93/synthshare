@@ -39,7 +39,8 @@ before_action :set_booking, except: [:create]
     @message.booking = @booking
     @message.user = current_user
     @message.save
-    PageMailer.newbooking(@message).deliver_now
+    PageMailer.newbooking(@booking).deliver_now #email for Synth Owner
+    PageMailer.bookingrequest(@booking, current_user).deliver_now #email for booking requestor
     redirect_to dashboard_path
   end
 
