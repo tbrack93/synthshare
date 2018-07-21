@@ -8,13 +8,22 @@ class PageMailer < ApplicationMailer
       )
   end
 
-  def newbooking(message)
-    @message = message
-    @booking = message.booking
+  def newbooking(booking)
+    @booking = booking
     @synth = @booking.synth
     mail(
-      to: "#{@message.booking.synth.user.email}",
-      subject: "New booking request for #{message.booking.synth}"
+      to: "#{@synth.user.email}",
+      subject: "New booking request for #{@synth}"
+      )
+  end
+
+  def bookingrequest(booking, currentuser)
+    @booking = booking
+    @synth = @booking.synth
+    @user = currentuser
+    mail(
+      to: "#{@user.email}",
+      subject: "Your booking request for #{@synth}"
       )
   end
 
