@@ -26,6 +26,7 @@ class MessagesController < ApplicationController
     booking.unreadmessages += 1
     authorize booking, :update?
     booking.save
+    PageMailer.newmessage(@message, current_user).deliver_now
   end
 
   private
