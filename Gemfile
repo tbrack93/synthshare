@@ -31,6 +31,8 @@ gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'date_validator'
 gem 'postmark-rails'
+gem 'sidekiq'
+gem 'sidekiq-failures'
 
 
 # See https://github.com/rails/execjs#readme for more supported runtimes

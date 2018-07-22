@@ -21,7 +21,8 @@
     end
 
     def contactmail
-    PageMailer.contact(params).deliver_now
+    @params = params.permit([:body, :email, :subject]).to_h
+    PageMailer.contact(@params).deliver_later
     redirect_to root_path
     end
 

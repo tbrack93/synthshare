@@ -39,8 +39,8 @@ before_action :set_booking, except: [:create]
     @message.booking = @booking
     @message.user = current_user
     @message.save
-    PageMailer.newbooking(@booking).deliver_now #email for Synth Owner
-    PageMailer.bookingrequest(@booking, current_user).deliver_now #email for booking requestor
+    PageMailer.newbooking(@booking.id).deliver_later #email for Synth Owner. Id as backgound task cannot receive instance
+    PageMailer.bookingrequest(@booking.id, current_user.id).deliver_later #email for booking requestor. Id as per above
     redirect_to dashboard_path
   end
 

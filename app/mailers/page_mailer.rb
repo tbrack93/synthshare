@@ -8,8 +8,8 @@ class PageMailer < ApplicationMailer
       )
   end
 
-  def newbooking(booking)
-    @booking = booking
+  def newbooking(bookingid)
+    @booking = Booking.find(bookingid)
     @synth = @booking.synth
     mail(
       to: "#{@synth.user.email}",
@@ -17,21 +17,21 @@ class PageMailer < ApplicationMailer
       )
   end
 
-  def bookingrequest(booking, currentuser)
-    @booking = booking
+  def bookingrequest(bookingid, currentuserid)
+    @booking = Booking.find(bookingid)
     @synth = @booking.synth
-    @user = currentuser
+    @user = User.find(currentuserid)
     mail(
       to: "#{@user.email}",
       subject: "Your booking request for #{@synth}"
       )
   end
 
-  def newmessage(message, currentuser)
-    @message = message
-    @booking = message.booking
+  def newmessage(messageid, currentuserid)
+    @message = Message.find(messageid)
+    @user = User.find(currentuserid) #devise current_user not available from mailer
+    @booking = @message.booking
     @synth = @booking.synth
-    @user = currentuser #devise current_user not available from mailer
     @booking.user == @user ? @recipient = @booking.synth.user : @recipient = @booking.user
     mail(
       to: "#{@recipient.email}",
